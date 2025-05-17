@@ -3,9 +3,18 @@ description:
 globs: 
 alwaysApply: true
 ---
-# AI Rules for {app-name}
+# AI Rules for VibeTravels
 
-{project-description}
+VibeTravels is a web app that generates detailed trip plans based on users' notes and travel preferences. Using artificial intelligence, the app converts simplified notes about places and destinations into specific, feasible itineraries for trips lasting one to five days.
+
+It targets three main user segments: families, couples, and solo travelers. The system considers real-world factors such as the average time needed to visit attractions, travel time, and attraction closing days or holidays to create a realistic schedule.
+
+Key features of VibeTravels include:
+- A user account system with profiles that include travel preferences
+- Creating notes about future trips
+- AI-generated itineraries based on notes
+- Viewing and filtering other users' trip plans
+- Exporting plans to PDF format.
 
 ## Tech Stack
 
