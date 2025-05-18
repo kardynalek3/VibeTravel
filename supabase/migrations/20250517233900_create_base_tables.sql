@@ -76,12 +76,7 @@ create table plans (
     is_public boolean default true,
     likes_count int default 0,
     created_at timestamp with time zone default now(),
-    deleted_at timestamp with time zone,
-    
-    -- limit of 3 plans per note
-    constraint max_plans_per_note check (
-        (select count(*) from plans p where p.note_id = note_id and p.deleted_at is null) <= 3
-    )
+    deleted_at timestamp with time zone
 );
 
 -- enable row level security on plans
@@ -89,6 +84,24 @@ alter table plans enable row level security;
 
 -- add comment to plans table
 comment on table plans is 'AI-generated travel plans based on user notes';
+
+-- Create a function to enforce the maximum plans per note limit
+CREATE OR REPLACE FUNCTION enforce_max_plans_per_note()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF (SELECT COUNT(*) FROM plans 
+      WHERE note_id = NEW.note_id AND deleted_at IS NULL) >= 3 THEN
+    RAISE EXCEPTION 'Maximum of 3 plans per note reached.';
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create a trigger to execute the function before insert/update
+CREATE TRIGGER max_plans_per_note_trigger
+BEFORE INSERT OR UPDATE ON plans
+FOR EACH ROW
+EXECUTE FUNCTION enforce_max_plans_per_note();
 
 -- create likes table
 create table likes (
