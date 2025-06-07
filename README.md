@@ -44,6 +44,7 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 ## Tech Stack
 
 ### Frontend
+
 - Astro 5
 - React 19
 - TypeScript 5
@@ -51,12 +52,15 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 - Shadcn/ui
 
 ### Backend
+
 - Supabase
 
 ### AI Integration
+
 - Communication with models through Openrouter.ai
 
 ### CI/CD & Hosting
+
 - GitHub Actions
 - DigitalOcean
 
@@ -70,17 +74,20 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/kardynalek3/VibeTravel.git
    cd VibeTravel
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -89,15 +96,15 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 
 ## Available Scripts
 
-| Command          | Description                                      |
-|------------------|--------------------------------------------------|
-| `npm run dev`    | Start the development server                     |
-| `npm run build`  | Build the project for production                 |
-| `npm run preview`| Preview the production build locally             |
-| `npm run astro`  | Run Astro CLI commands                           |
-| `npm run lint`   | Run ESLint to check for code issues              |
-| `npm run lint:fix`| Fix ESLint issues automatically                 |
-| `npm run format` | Format code with Prettier                        |
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Start the development server         |
+| `npm run build`    | Build the project for production     |
+| `npm run preview`  | Preview the production build locally |
+| `npm run astro`    | Run Astro CLI commands               |
+| `npm run lint`     | Run ESLint to check for code issues  |
+| `npm run lint:fix` | Fix ESLint issues automatically      |
+| `npm run format`   | Format code with Prettier            |
 
 ## Project Scope
 
@@ -145,7 +152,7 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 │   ├── db/           # Supabase clients and types
 │   ├── types.ts      # Shared types (Entities, DTOs)
 │   ├── components/   # Client-side components
-│   │   └── ui/       # Shadcn/ui components  
+│   │   └── ui/       # Shadcn/ui components
 │   ├── lib/          # Services and helpers
 │   └── assets/       # Static internal assets
 └── public/           # Public assets
@@ -156,10 +163,11 @@ Planning engaging and interesting trips requires significant time, knowledge, an
 VibeTravels is currently in the development phase and under active development.
 
 After the initial release, success will be evaluated over a 3-month period based on the following metrics:
+
 - User engagement (profile completion, plan generation frequency, likes)
 - System performance (generation time, success rate, page load time)
 - User base growth (new registrations, retention rate)
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). 
+This project is licensed under the [MIT License](LICENSE).

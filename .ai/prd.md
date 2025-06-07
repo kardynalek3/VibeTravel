@@ -7,6 +7,7 @@ VibeTravels to responsywna aplikacja webowa służąca do generowania szczegół
 Aplikacja jest skierowana do trzech głównych segmentów użytkowników: rodzin, par oraz samotnych podróżników. System uwzględnia rzeczywiste uwarunkowania, takie jak średni czas zwiedzania atrakcji, średni czas przemieszczania się, dni zamknięcia atrakcji czy święta, aby wygenerować realistyczny harmonogram.
 
 Kluczowe funkcjonalności VibeTravels obejmują:
+
 - System kont użytkowników z profilami zawierającymi preferencje podróżnicze
 - Tworzenie notatek o przyszłych wycieczkach
 - Generowanie planów podróży przez AI na podstawie notatek
@@ -18,6 +19,7 @@ Kluczowe funkcjonalności VibeTravels obejmują:
 Głównym problemem, który rozwiązuje VibeTravels, jest trudność w planowaniu angażujących i interesujących wycieczek. Planowanie wycieczki wymaga dużo czasu, wiedzy i badań, aby zidentyfikować interesujące atrakcje, zoptymalizować trasę zwiedzania i uwzględnić praktyczne aspekty, takie jak godziny otwarcia atrakcji czy czas potrzebny na przemieszczanie się.
 
 VibeTravels odpowiada na ten problem, umożliwiając zamianę uproszczonych notatek o miejscach i celach podróży na konkretne, wykonalne plany. System wykorzystuje potencjał AI do generowania spersonalizowanych planów podróży, które uwzględniają:
+
 - Preferencje podróżnicze użytkownika
 - Dostępny czas na wycieczkę
 - Realne czasy zwiedzania atrakcji i przemieszczania się między nimi
@@ -31,12 +33,14 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 3.1 System kont użytkownika
 
 1. Rejestracja użytkownika:
+
    - Zbieranie danych: imię, nazwisko, email, płeć
    - Wymagania dla haseł: minimum 8 znaków, co najmniej jedna wielka litera, cyfra i znak specjalny
    - Zabezpieczenie formularza logowania za pomocą CAPTCHA
    - Aktywacja konta poprzez link wysyłany na adres email
 
 2. Logowanie i zarządzanie kontem:
+
    - Logowanie za pomocą email i hasła
    - Resetowanie hasła przez link wysyłany na email (ważność linku: 1 godzina)
    - Możliwość aktualizacji danych profilu
@@ -48,11 +52,13 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 3.2 System notatek i planów podróży
 
 1. Tworzenie notatek:
+
    - Formularz umożliwiający wprowadzenie: miejsca docelowego, typu segmentu, typu transportu, długości wycieczki (1-5 dni), pożądanych atrakcji
    - Ograniczenia: maksimum 5000 znaków dla pola atrakcji, po 500 znaków dla pozostałych pól
    - Możliwość zapisania wersji roboczej planu
 
 2. Generowanie planów przez AI:
+
    - Konwersja notatek na szczegółowy plan podróży
    - Uwzględnianie preferencji użytkownika z profilu
    - Uwzględnianie średniego czasu chodu i zwiedzania atrakcji
@@ -70,6 +76,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 3.3 Interakcja z planami publicznymi
 
 1. Przeglądanie planów:
+
    - Lista dostępnych publicznie planów podróży
    - Wyświetlanie autora planu (imię i pierwsza litera nazwiska)
    - Filtrowanie planów według: typu segmentu, miejsca, długości podróży, liczby polubień
@@ -82,6 +89,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 3.4 Panel administratora
 
 1. Monitorowanie:
+
    - Liczba użytkowników
    - Liczba planów per użytkownik
    - Całkowita liczba planów w systemie
@@ -93,6 +101,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 3.5 Integracje i API
 
 1. Integracja z API AI:
+
    - Komunikacja z modelami przez usługę Openrouter.ai
    - Cache'owanie popularnych zapytań do AI
 
@@ -139,6 +148,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### Zarządzanie kontem
 
 #### US-001: Rejestracja konta
+
 - Jako nowy użytkownik, chcę zarejestrować konto, aby móc korzystać z funkcjonalności aplikacji.
 - Kryteria akceptacji:
   1. Użytkownik może wypełnić formularz rejestracyjny z danymi: imię, nazwisko, email, płeć i hasło.
@@ -150,6 +160,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   7. Link aktywacyjny pozostaje ważny przez 24 godziny.
 
 #### US-002: Logowanie do systemu
+
 - Jako zarejestrowany użytkownik, chcę zalogować się do aplikacji, aby uzyskać dostęp do moich planów podróży.
 - Kryteria akceptacji:
   1. Użytkownik może zalogować się podając email i hasło.
@@ -159,6 +170,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   5. Użytkownik jest przekierowywany do strony głównej po udanym logowaniu.
 
 #### US-003: Odzyskiwanie hasła
+
 - Jako użytkownik, który zapomniał hasła, chcę zresetować moje hasło, aby odzyskać dostęp do konta.
 - Kryteria akceptacji:
   1. Użytkownik może kliknąć w link "Zapomniałem hasła" na stronie logowania.
@@ -169,6 +181,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   6. Po zmianie hasła użytkownik jest przekierowywany na stronę logowania.
 
 #### US-004: Uzupełnienie preferencji w profilu
+
 - Jako zalogowany użytkownik, chcę uzupełnić moje preferencje turystyczne, aby otrzymywać lepiej dopasowane plany wycieczek.
 - Kryteria akceptacji:
   1. Użytkownik może wypełnić formularz preferencji zawierający: ulubiony segment, typ segmentu, ulubione kierunki, typ wycieczki, typ transportu.
@@ -177,6 +190,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. System potwierdza zapisanie preferencji.
 
 #### US-005: Przeglądanie statystyk użytkownika
+
 - Jako zalogowany użytkownik, chcę przeglądać statystyki moich planów podróży, aby śledzić moją aktywność.
 - Kryteria akceptacji:
   1. Użytkownik może zobaczyć liczbę wygenerowanych planów.
@@ -187,6 +201,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### Zarządzanie notatkami i planami
 
 #### US-006: Tworzenie notatek o planowanej wycieczce
+
 - Jako zalogowany użytkownik, chcę utworzyć notatkę o planowanej wycieczce, aby później wygenerować szczegółowy plan.
 - Kryteria akceptacji:
   1. Użytkownik może wypełnić formularz z danymi: miejsce docelowe, typ segmentu, typ transportu, długość wycieczki (1-5 dni), polecane atrakcje.
@@ -195,6 +210,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. System potwierdza zapisanie notatki.
 
 #### US-007: Generowanie planu podróży przez AI
+
 - Jako zalogowany użytkownik, chcę wygenerować szczegółowy plan podróży na podstawie mojej notatki, aby otrzymać gotowy harmonogram wycieczki.
 - Kryteria akceptacji:
   1. Użytkownik może wybrać notatkę i zainicjować generowanie planu.
@@ -207,6 +223,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   8. Plan zawiera trasę z zaznaczonymi punktami na mapie.
 
 #### US-008: Zapisywanie wersji roboczej planu
+
 - Jako zalogowany użytkownik, chcę zapisać niedokończony plan jako wersję roboczą, aby móc wrócić do niego później.
 - Kryteria akceptacji:
   1. System automatycznie zapisuje stan formularza jako wersję roboczą, jeśli nie wypełniono wszystkich wymaganych pól.
@@ -215,6 +232,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Użytkownik może kontynuować pracę nad wersją roboczą w dowolnym momencie.
 
 #### US-009: Zarządzanie statusem planu (publiczny/prywatny)
+
 - Jako zalogowany użytkownik, chcę ustawić mój plan jako publiczny lub prywatny, aby kontrolować jego widoczność dla innych.
 - Kryteria akceptacji:
   1. Domyślnie wszystkie plany są ustawione jako publiczne.
@@ -223,6 +241,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Plany publiczne są dostępne w wyszukiwarce i mogą być przeglądane przez innych użytkowników.
 
 #### US-010: Eksport planu do PDF
+
 - Jako zalogowany użytkownik, chcę wyeksportować mój plan podróży do pliku PDF, aby mieć do niego dostęp offline.
 - Kryteria akceptacji:
   1. Użytkownik może wybrać opcję eksportu planu do PDF.
@@ -231,6 +250,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. System potwierdza pomyślne wygenerowanie PDF i udostępnia link do pobrania.
 
 #### US-011: Przeglądanie historii planów
+
 - Jako zalogowany użytkownik, chcę przeglądać historię moich planów podróży, aby wrócić do wcześniej wygenerowanych planów.
 - Kryteria akceptacji:
   1. Użytkownik może zobaczyć listę wszystkich swoich planów podróży.
@@ -239,6 +259,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Użytkownik może usunąć wybrane plany z historii.
 
 #### US-012: Usuwanie planu
+
 - Jako zalogowany użytkownik, chcę usunąć mój plan podróży, jeśli nie jest mi już potrzebny.
 - Kryteria akceptacji:
   1. Użytkownik może wybrać opcję usunięcia planu.
@@ -249,6 +270,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### Interakcja z planami publicznymi
 
 #### US-013: Przeglądanie publicznych planów
+
 - Jako użytkownik, chcę przeglądać publicznie dostępne plany podróży, aby znaleźć inspirację dla własnych wycieczek.
 - Kryteria akceptacji:
   1. Użytkownik może przeglądać listę publicznych planów podróży.
@@ -257,6 +279,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Czas ładowania strony nie przekracza 2 minut.
 
 #### US-014: Filtrowanie i sortowanie planów
+
 - Jako użytkownik, chcę filtrować i sortować publiczne plany, aby łatwiej znaleźć interesujące mnie propozycje.
 - Kryteria akceptacji:
   1. Użytkownik może filtrować plany według: typu segmentu, miejsca, długości podróży, liczby polubień.
@@ -265,6 +288,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. System dynamicznie aktualizuje listę wyników po zmianie filtrów.
 
 #### US-015: Polubienie planu
+
 - Jako zalogowany użytkownik, chcę polubić interesujący mnie plan podróży, aby wyrazić uznanie dla jego autora.
 - Kryteria akceptacji:
   1. Użytkownik może kliknąć przycisk "Lubię to" przy wybranym planie.
@@ -273,6 +297,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Użytkownik nie może polubić własnego planu.
 
 #### US-016: Przeglądanie szczegółów planu
+
 - Jako użytkownik, chcę zobaczyć szczegóły wybranego planu podróży, aby ocenić jego przydatność.
 - Kryteria akceptacji:
   1. Użytkownik może wybrać plan z listy, aby zobaczyć jego szczegóły.
@@ -283,6 +308,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### Panel administratora
 
 #### US-017: Monitorowanie podstawowych metryk
+
 - Jako administrator systemu, chcę monitorować podstawowe metryki aplikacji, aby śledzić jej wydajność i wykorzystanie.
 - Kryteria akceptacji:
   1. Administrator może zobaczyć liczbę zarejestrowanych użytkowników.
@@ -291,6 +317,7 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
   4. Dane są aktualizowane w czasie rzeczywistym.
 
 #### US-018: Zarządzanie błędami AI
+
 - Jako administrator systemu, chcę otrzymywać powiadomienia o błędach AI, aby móc reagować na problemy.
 - Kryteria akceptacji:
   1. System wysyła powiadomienia email o błędach AI do administratora.
@@ -303,11 +330,13 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 6.1 Główne wskaźniki sukcesu
 
 1. Zaangażowanie użytkowników:
+
    - 90% użytkowników posiada wypełnione preferencje turystyczne w swoim profilu
    - 75% użytkowników generuje 3 lub więcej planów wycieczek na rok
    - Liczba polubień planów (wskaźnik jakości i przydatności wygenerowanych planów)
 
 2. Wydajność systemu:
+
    - Średni czas generowania planu poniżej 2 minut
    - Procent udanych generacji planów (bez błędów AI) powyżej 95%
    - Średni czas ładowania strony poniżej 1 minuty
@@ -319,15 +348,17 @@ Aplikacja zmniejsza barierę wejścia w planowanie wycieczek, umożliwiając uż
 ### 6.2 Mierzenie sukcesu
 
 1. Zbieranie danych:
+
    - Automatyczne gromadzenie metryk użytkowania
    - Monitorowanie błędów i problemów wydajnościowych
    - Dashboard administratora z kluczowymi wskaźnikami
 
 2. Ocena planów:
+
    - Monitorowanie liczby polubień jako wskaźnika jakości planów
    - Analiza wykorzystania funkcji eksportu do PDF (wskaźnik praktycznej użyteczności planów)
 
 3. Cykl wdrożenia:
    - MVP musi zostać wdrożone do 16.05.2025
    - Ocena sukcesu MVP nastąpi po 3 miesiącach od wdrożenia
-   - Decyzja o rozwoju funkcjonalności post-MVP na podstawie metryk z pierwszych 3 miesięcy 
+   - Decyzja o rozwoju funkcjonalności post-MVP na podstawie metryk z pierwszych 3 miesięcy

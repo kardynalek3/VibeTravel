@@ -4,18 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest --passWithNoTests",
+    "format": "prettier --write . --ignore-path .eslintignore"
   },
   "dependencies": {
     "@astrojs/node": "^9.1.3",
     "@astrojs/react": "4.2.2",
     "@astrojs/sitemap": "3.3.0",
     "@radix-ui/react-slot": "^1.1.2",
+    "@supabase/supabase-js": "^2.49.4",
     "@tailwindcss/vite": "4.0.17",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
@@ -27,11 +29,16 @@
     "react-dom": "19.0.0",
     "tailwind-merge": "^3.1.0",
     "tailwindcss": "4.0.17",
-    "tw-animate-css": "^1.2.5"
+    "tw-animate-css": "^1.2.5",
+    "uuid": "^11.1.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.7",
     "@eslint/js": "9.23.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.42.0",
+    "@types/node": "^20.11.20",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "8.28.0",
     "@typescript-eslint/parser": "8.28.0",
     "eslint": "9.23.0",
@@ -40,18 +47,22 @@
     "eslint-plugin-astro": "1.3.1",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-prettier": "5.2.5",
+    "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-compiler": "19.0.0-beta-aeaed83-20250323",
     "eslint-plugin-react-hooks": "5.2.0",
     "husky": "9.1.7",
     "lint-staged": "15.5.0",
+    "msw": "^2.10.1",
     "prettier-plugin-astro": "0.14.1",
-    "typescript-eslint": "8.28.0"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "8.28.0",
+    "undici": "^5.29.0",
+    "vitest": "^1.6.1"
   },
   "lint-staged": {
     "*.{ts,tsx,astro}": [
-      "eslint --fix"
+      "eslint --fix --ignore-pattern \"tests/**\""
     ],
     "*.{json,css,md}": [
       "prettier --write"

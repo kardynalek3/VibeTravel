@@ -38,7 +38,7 @@ CREATE TABLE profiles (
     likes_received_count INT DEFAULT 0,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
-    
+
     -- Tylko jedno konto na adres email
     UNIQUE(email)
 );
@@ -90,7 +90,7 @@ CREATE TABLE plans (
     likes_count INT DEFAULT 0,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
     deleted_at TIMESTAMP WITH TIME ZONE,
-    
+
     -- Ograniczenie do maksymalnie 3 planów na notatkę
     CONSTRAINT max_plans_per_note CHECK (
         (SELECT COUNT(*) FROM plans p WHERE p.note_id = note_id AND p.deleted_at IS NULL) <= 3
@@ -107,7 +107,7 @@ CREATE TABLE likes (
     user_id UUID REFERENCES auth.users(id) NOT NULL,
     plan_id UUID REFERENCES plans(id) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
-    
+
     -- Tylko jedno polubienie na plan od użytkownika
     UNIQUE(user_id, plan_id)
 );
@@ -131,21 +131,27 @@ CREATE TABLE ai_errors (
 ## 2. Relacje między tabelami
 
 1. **auth.users** 1:1 **profiles**
+
    - Każdy użytkownik ma jeden profil z unikalnym adresem email
 
 2. **users** 1:N **notes**
+
    - Użytkownik może mieć wiele notatek
 
 3. **destinations** 1:N **notes**
+
    - Miejsce docelowe może być powiązane z wieloma notatkami
 
 4. **notes** 1:N **plans** (maksymalnie 3)
+
    - Z jednej notatki można wygenerować maksymalnie 3 plany podróży
 
 5. **users** 1:N **plans**
+
    - Użytkownik może mieć wiele planów
 
 6. **destinations** 1:N **plans**
+
    - Miejsce docelowe może być powiązane z wieloma planami
 
 7. **users** N:M **plans** (przez tabele **likes**)
@@ -245,11 +251,11 @@ RETURNS TRIGGER AS $$
 BEGIN
   IF TG_OP = 'INSERT' THEN
     UPDATE plans SET likes_count = likes_count + 1 WHERE id = NEW.plan_id;
-    UPDATE profiles SET likes_received_count = likes_received_count + 1 
+    UPDATE profiles SET likes_received_count = likes_received_count + 1
     WHERE id = (SELECT user_id FROM plans WHERE id = NEW.plan_id);
   ELSIF TG_OP = 'DELETE' THEN
     UPDATE plans SET likes_count = likes_count - 1 WHERE id = OLD.plan_id;
-    UPDATE profiles SET likes_received_count = likes_received_count - 1 
+    UPDATE profiles SET likes_received_count = likes_received_count - 1
     WHERE id = (SELECT user_id FROM plans WHERE id = OLD.plan_id);
   END IF;
   RETURN NULL;
@@ -363,28 +369,33 @@ CREATE POLICY ai_errors_select_admin ON ai_errors FOR SELECT
 ## 7. Uwagi i wyjaśnienia
 
 1. **Miękkie usuwanie rekordów**:
+
    - Tabele `notes` i `plans` zawierają kolumnę `deleted_at`, która umożliwia miękkie usuwanie
    - Indeksy częściowe z warunkiem `WHERE deleted_at IS NULL` optymalizują zapytania o aktywne rekordy
    - Polityki RLS uwzględniają warunek `deleted_at IS NULL`
 
 2. **Cache'owanie z Redis**:
+
    - Choć sam schemat bazy danych nie zawiera konfiguracji Redis, zaleca się implementację cache'owania na poziomie aplikacji dla:
      - Popularnych planów publicznych (timeout: 1 godzina)
      - Wyników wyszukiwania (timeout: 15 minut)
      - Profili użytkowników i popularnych miejsc docelowych
 
 3. **Limity i ograniczenia**:
+
    - Ograniczenie długości notatek do 500 znaków
    - Ograniczenie długości planów do 5000 znaków
    - Ograniczenie maksymalnej liczby planów do 3 dla jednej notatki
    - Ograniczenie długości wycieczek od 1 do 5 dni
 
 4. **Bezpieczeństwo**:
+
    - Zarządzanie użytkownikami i uwierzytelnianie realizowane przez Supabase
    - RLS zapewnia dostęp do danych tylko dla uprawnionych użytkowników
    - Polityki RLS implementują reguły biznesowe dotyczące dostępu do danych
 
 5. **Monitorowanie i konserwacja**:
+
    - Automatyczne wykonywanie VACUUM ANALYZE raz w tygodniu
    - Odświeżanie zmaterializowanych widoków raz w tygodniu
    - Automatyczne usuwanie starych błędów AI po miesiącu
@@ -393,4 +404,4 @@ CREATE POLICY ai_errors_select_admin ON ai_errors FOR SELECT
    - Indeksy na często używanych ścieżkach zapytań
    - Zmaterializowane widoki dla popularnych zapytań
    - Częściowe indeksy dla optymalizacji zapytań o aktywne i publiczne plany
-   - Indeks GIN dla efektywnego wyszukiwania w polu JSONB 
+   - Indeks GIN dla efektywnego wyszukiwania w polu JSONB

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+tests/
+**/__mocks__/
+vitest.config.ts
+.eslintrc.cjs 

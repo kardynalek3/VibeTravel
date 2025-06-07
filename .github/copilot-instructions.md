@@ -5,6 +5,7 @@ VibeTravels is a web app that generates detailed trip plans based on users' note
 It targets three main user segments: families, couples, and solo travelers. The system considers real-world factors such as the average time needed to visit attractions, travel time, and attraction closing days or holidays to create a realistic schedule.
 
 Key features of VibeTravels include:
+
 - A user account system with profiles that include travel preferences
 - Creating notes about future trips
 - AI-generated itineraries based on notes
@@ -90,7 +91,7 @@ When modifying the directory structure, always update this section.
 - Leverage View Transitions API for smooth page transitions (use ClientRouter)
 - Use content collections with type safety for blog posts, documentation, etc.
 - Leverage Server Endpoints for API routes
-- Use POST, GET  - uppercase format for endpoint handlers
+- Use POST, GET - uppercase format for endpoint handlers
 - Use `export const prerender = false` for API routes
 - Use zod for input validation in API routes
 - Extract logic into services in `src/lib/services`
