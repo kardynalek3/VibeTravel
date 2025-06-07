@@ -16,7 +16,7 @@ export default [
       prettier: prettierPlugin,
     },
     rules: {
-      "prettier/prettier": ["error", { endOfLine: "auto", singleQuote: false }],
+      "prettier/prettier": ["error", { endOfLine: "auto", singleQuote: false, arrowParens: "avoid" }],
       "linebreak-style": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/no-explicit-any": "off",
