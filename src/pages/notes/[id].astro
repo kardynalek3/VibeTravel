@@ -1,0 +1,14 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import NoteDetailsPage from "@/components/notes/NoteDetailsPage";
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/404");
+}
+---
+
+<MainLayout title="Szczegóły notatki">
+  <NoteDetailsPage client:load noteId={id} />
+</MainLayout> 
