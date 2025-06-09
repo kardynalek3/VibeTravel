@@ -147,6 +147,7 @@ export type UserBasicInfo = {
  * Podstawowe informacje o miejscu docelowym
  */
 export type DestinationBasicInfo = {
+  id: number;
   city: string;
   country: string;
 };
