@@ -1,0 +1,12 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import NoteFormPage from '@/components/notes/NoteFormPage';
+
+export const prerender = false;
+
+const { id } = Astro.params;
+---
+
+<MainLayout title="Edit Note">
+  <NoteFormPage noteId={id} client:load />
+</MainLayout> 
